@@ -30,8 +30,10 @@ out/
 /nbproject/private/
 /nbbuild/
 /dist/
-/nbdist/
+/nbdgitist/
 /.nb-gradle/
 
 ### VS Code ###
 .vscode/
+
+
