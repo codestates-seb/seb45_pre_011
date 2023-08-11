@@ -1,4 +1,4 @@
-package com.example.seb45pre011.securirty;
+package com.example.seb45pre011.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
