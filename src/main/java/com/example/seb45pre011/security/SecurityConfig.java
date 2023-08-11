@@ -11,9 +11,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // 아래와 같이 인증과 로그인 관련 설정을 주석 처리 또는 비활성화
-        // http.formLogin().loginPage("/login").permitAll();
-        // http.logout().logoutUrl("/logout").logoutSuccessUrl("/");
-        // ...
+        http.authorizeRequests()
+                .antMatchers("/h2/**").permitAll() // H2 데이터베이스 콘솔 접근 허용
+                .anyRequest().authenticated()
+                .and()
+                .csrf().disable();
+        http.headers().frameOptions().sameOrigin();
     }
 }
