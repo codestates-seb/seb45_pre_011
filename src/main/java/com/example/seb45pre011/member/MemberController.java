@@ -29,7 +29,7 @@ public class MemberController {
         String jwtToken = service.loginMember(mapper.memberloginDtoToMember(loginDto));
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "Bearer " + jwtToken);
+        headers.add("X-AUTH-TOKEN", "Bearer " + jwtToken);
 
         return ResponseEntity.ok()
                 .headers(headers)
