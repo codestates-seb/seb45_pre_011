@@ -1,6 +1,7 @@
 package com.example.seb45pre011.member;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,9 +19,9 @@ import java.util.List;
 
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "MEMBER")
 public class Member implements UserDetails {
 
     @Id
@@ -28,14 +29,10 @@ public class Member implements UserDetails {
     private long userId;
 
     @Column(length = 100, nullable = false,unique = true)
-    private String id;
-
+    private String email;
 
     @Column(length = 100, nullable = false)
     private String name;
-
-    @Column(length = 100, nullable = false,unique = true)
-    private String email;
 
     @Column(length = 300, nullable = false)
     private String password;
@@ -49,13 +46,23 @@ public class Member implements UserDetails {
     @Column(nullable = false)
     private String nick;
 
+    @CreationTimestamp
     private LocalDateTime createAt = LocalDateTime.now();
 
+    @Setter(AccessLevel.NONE)
     @ElementCollection(fetch = FetchType.EAGER)
-    @Builder.Default
     private List<String> roles = new ArrayList<>();
 
 
+    public void setRoles(String email){
+//        if(email.equals()){   //관리자 계정 이메일 넣으면 됨.
+//            roles.add("USER");
+//            roles.add("ADMIN");
+//        }
+        roles.add("USER");
+    }
+    @Enumerated(EnumType.STRING)
+    @Column
     private MemberStatus memberStatus = MemberStatus.MEMBER_ACTIVE;
 
 
@@ -106,7 +113,6 @@ public class Member implements UserDetails {
             this.status = status;
         }
     }
-
 
 }
 

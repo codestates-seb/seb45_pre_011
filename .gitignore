@@ -42,3 +42,5 @@ out/
 # .gitignore 파일 내용
 .DS_Store
 >>>>>>> 690f2de7c63c0309d634c4094112c85ff1ab0b55
+
+application-oauth.yml

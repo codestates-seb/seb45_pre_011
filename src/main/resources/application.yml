@@ -13,8 +13,6 @@ spring:
       hibernate:
         format_sql: true  # (3) SQL pretty print
 
-
-
 jwt:
   password: CodeStatesPreProject11team
   validTime: 1800000
