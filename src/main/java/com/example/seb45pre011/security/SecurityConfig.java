@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                    .antMatchers("/h2/**").permitAll() // H2 데이터베이스 콘솔 접근 허용
+                    .antMatchers("/h2/**").permitAll()// H2 데이터베이스 콘솔 접근 허용
                     .anyRequest().authenticated()
                     .and()
                     .cors().disable()

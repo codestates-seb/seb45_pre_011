@@ -32,7 +32,7 @@ public class Member implements UserDetails {
     private String email;
 
     @Column(length = 100, nullable = false)
-    private String name;
+    private String username;
 
     @Column(length = 300, nullable = false)
     private String password;
@@ -77,7 +77,7 @@ public class Member implements UserDetails {
 
     @Override
     public String getUsername() {
-        return name;
+        return username;
     }
 
     @Override

@@ -18,6 +18,10 @@ public class MemberController {
     private final MemberMapper mapper;
     private final MemberService service;
 
+    @PostMapping
+    public String test(){
+        return "hello world";
+    }
     @PostMapping("/users/signup")
     public ResponseEntity postMember(@RequestBody MemberDto.post postDto){
         Member saveMember = service.createMember(mapper.memberPostDtoToMember(postDto));
@@ -27,13 +31,15 @@ public class MemberController {
     @PostMapping("/users/login")
     public ResponseEntity loginMember(@RequestBody MemberDto.login loginDto){
         String jwtToken = service.loginMember(mapper.memberloginDtoToMember(loginDto));
-
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-AUTH-TOKEN", "Bearer " + jwtToken);
 
         return ResponseEntity.ok()
                 .headers(headers)
-                .body("Login Successful");
+                .body(jwtToken);
+
+
+
 
 
     }

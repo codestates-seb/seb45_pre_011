@@ -7,7 +7,7 @@ public class MemberDto {
     @Getter
     public static class post{
         private String email;
-        private String name;
+        private String username;
         private String password;
         private String gender;
         private String phone;
