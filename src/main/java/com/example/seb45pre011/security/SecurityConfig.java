@@ -2,6 +2,7 @@ package com.example.seb45pre011.security;
 
 //import com.example.seb45pre011.member.CustomOAuth2UserService;
 
+import com.example.seb45pre011.member.TokenBlackList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //    private final CustomOAuth2UserService customOAuth2UserService;
     private final JwtProvider jwtProvider;
+    private final TokenBlackList tokenBlackList;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -47,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider,tokenBlackList), UsernamePasswordAuthenticationFilter.class);
     }
 
 

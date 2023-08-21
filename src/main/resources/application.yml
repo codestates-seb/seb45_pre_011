@@ -15,4 +15,4 @@ spring:
 
 jwt:
   password: CodeStatesPreProject11team
-  validTime: 1800000
+  accessTokenValidTime: 1800000

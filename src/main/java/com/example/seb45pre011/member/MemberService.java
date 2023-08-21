@@ -25,14 +25,7 @@ public class MemberService {
         this.passwordEncoder = passwordEncoder;
         this.jwtProvider = jwtProvider;
         this.blackList = blackList;
-
     }
-    public MemberService(MemberRepository repository, PasswordEncoder passwordEncoder, JwtProvider jwtProvider){
-        this.repository = repository;
-        this.passwordEncoder = passwordEncoder;
-        this.jwtProvider = jwtProvider;
-    }
-
 
     public Member createMember(Member member){
         verifyExist(member.getEmail());
