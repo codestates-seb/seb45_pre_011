@@ -18,7 +18,15 @@ public class MemberService {
     private  MemberRepository repository;
     private  PasswordEncoder passwordEncoder;
     private  JwtProvider jwtProvider;
+    private TokenBlackList blackList;
 
+    public MemberService(MemberRepository repository, PasswordEncoder passwordEncoder, JwtProvider jwtProvider,TokenBlackList blackList){
+        this.repository = repository;
+        this.passwordEncoder = passwordEncoder;
+        this.jwtProvider = jwtProvider;
+        this.blackList = blackList;
+
+    }
     public MemberService(MemberRepository repository, PasswordEncoder passwordEncoder, JwtProvider jwtProvider){
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
@@ -49,6 +57,10 @@ public class MemberService {
         }
     }
 
+    public void logoutMember(String accessToken){
+        blackList.addBlackList(accessToken);
+    }
+
     public Member deleteMember(Member member){
         if(member.getMemberStatus() == Member.MemberStatus.MEMBER_EXIT || member.getMemberStatus() == Member.MemberStatus.MEMBER_SLEEP)
             throw new BusinessLogicException(ExceptionCode.MEMBER_UNAUTHORIZED);
@@ -75,6 +87,20 @@ public class MemberService {
                 optionalMember.orElseThrow(() ->
                         new BusinessLogicException(ExceptionCode.MEMBER_NOT_FOUND));
         return foundMebmer;
+    }
+    public Member resetPassword(Member member){
+        String encodedPassword = passwordEncoder.encode(member.getPassword());
+        member.setPassword(encodedPassword);
+        return repository.updatePasswordByEmail(member.getEmail(),member.getPassword());
+    }
+
+    public Member findPassword(Member member){
+        Optional<Member> optionalMember = repository.findByEmailAndUsername(member.getEmail(),member.getUsername());
+        if(optionalMember.isEmpty()){
+            throw new BusinessLogicException(ExceptionCode.MEMBER_NOT_FOUND);
+        }else{
+            return optionalMember.get();
+        }
     }
     public void verifyExist(String email) {
         Optional<Member> findUser = repository.findByEmail(email);
