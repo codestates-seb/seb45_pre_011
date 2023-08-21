@@ -5,7 +5,8 @@ import lombok.Getter;
 public enum ExceptionCode {
         COMMENT_NOT_FOUND(404, "Comment not found"),
         POST_NOT_FOUND(404, "Post not found"),
-        MEMBER_NOT_FOUND(404, "Member not found");
+        MEMBER_NOT_FOUND(404, "Member not found"),
+        MEMBER_UNAUTHORIZED(404, "Member Status is EXIT or SLEEP");
 
         @Getter
         private int status;

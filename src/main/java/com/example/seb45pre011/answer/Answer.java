@@ -30,9 +30,7 @@ public class Answer {
   @CreationTimestamp
   private LocalDateTime createdAt;
 
-  @ManyToMany
-  @JoinTable(name = "answer_memberss",
-          joinColumns = @JoinColumn(name = "answer_id"),
-          inverseJoinColumns = @JoinColumn(name = "member_id"))
-  private Set<Member> members = new HashSet<>();
+  @ManyToOne
+  @JoinColumn(name="user_id")
+  private Member member;
 }

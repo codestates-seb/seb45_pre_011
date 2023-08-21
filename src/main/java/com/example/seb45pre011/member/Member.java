@@ -114,6 +114,4 @@ public class Member implements UserDetails {
             this.status = status;
         }
     }
-    @ManyToMany(mappedBy = "members")
-    private Set<Answer> answers = new HashSet<>();
 }
