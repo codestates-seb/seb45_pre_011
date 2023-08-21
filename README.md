@@ -46,6 +46,8 @@
 
 ### BE 기술 스택
 
+<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=green"><img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
+
 ---
 
 ## 커밋 규칙
