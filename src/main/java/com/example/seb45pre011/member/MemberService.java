@@ -18,16 +18,14 @@ public class MemberService {
     private  MemberRepository repository;
     private  PasswordEncoder passwordEncoder;
     private  JwtProvider jwtProvider;
+    private TokenBlackList blackList;
 
-    public MemberService(MemberRepository repository, PasswordEncoder passwordEncoder, JwtProvider jwtProvider){
+    public MemberService(MemberRepository repository, PasswordEncoder passwordEncoder, JwtProvider jwtProvider,TokenBlackList blackList){
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
         this.jwtProvider = jwtProvider;
+        this.blackList = blackList;
     }
-
-
-
-
 
     public Member createMember(Member member){
         verifyExist(member.getEmail());
@@ -42,11 +40,38 @@ public class MemberService {
     public String loginMember(Member member) {
         Optional<Member> findMember = repository.findByEmail(member.getEmail());
         Member existMember = findMember.orElseThrow(() -> new IllegalArgumentException("가입되지 않은 아이디 입니다."));
+        if(existMember.getMemberStatus() == Member.MemberStatus.MEMBER_EXIT || existMember.getMemberStatus() == Member.MemberStatus.MEMBER_SLEEP){
+            throw new BusinessLogicException(ExceptionCode.MEMBER_UNAUTHORIZED);
+        }
         if (passwordEncoder.matches(member.getPassword(), existMember.getPassword())) {
             return jwtProvider.createToken(member.getEmail(), member.getRoles());
         } else {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
         }
+    }
+
+    public void logoutMember(String accessToken){
+        blackList.addBlackList(accessToken);
+    }
+
+    public Member deleteMember(Member member){
+        if(member.getMemberStatus() == Member.MemberStatus.MEMBER_EXIT || member.getMemberStatus() == Member.MemberStatus.MEMBER_SLEEP)
+            throw new BusinessLogicException(ExceptionCode.MEMBER_UNAUTHORIZED);
+        member.setMemberStatus(Member.MemberStatus.MEMBER_EXIT);
+        return repository.save(member);
+    }
+
+    // 비밀번호 변경
+    public Member updateMember(Member member, MemberDto.Patch patch){
+        String password = passwordEncoder.encode(patch.getPassword());
+        String phone = patch.getPhone();
+        String nickname = patch.getNick();
+
+        member.setPassword(password);
+        member.setPhone(phone);
+        member.setNick(nickname);
+
+        return repository.save(member);
     }
 
     public Member findMemberByEmail(String email){
@@ -55,6 +80,20 @@ public class MemberService {
                 optionalMember.orElseThrow(() ->
                         new BusinessLogicException(ExceptionCode.MEMBER_NOT_FOUND));
         return foundMebmer;
+    }
+    public Member resetPassword(Member member){
+        String encodedPassword = passwordEncoder.encode(member.getPassword());
+        member.setPassword(encodedPassword);
+        return repository.updatePasswordByEmail(member.getEmail(),member.getPassword());
+    }
+
+    public Member findPassword(Member member){
+        Optional<Member> optionalMember = repository.findByEmailAndUsername(member.getEmail(),member.getUsername());
+        if(optionalMember.isEmpty()){
+            throw new BusinessLogicException(ExceptionCode.MEMBER_NOT_FOUND);
+        }else{
+            return optionalMember.get();
+        }
     }
     public void verifyExist(String email) {
         Optional<Member> findUser = repository.findByEmail(email);
