@@ -33,7 +33,8 @@
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black"/>
 
 ### BE 기술 스택
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/61264510/200165336-46bfa99c-6f2d-4b7b-81b8-44a849c68544.svg">
 ---
 
 ## 커밋 규칙
