@@ -34,7 +34,7 @@
 
 ### BE 기술 스택
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/61264510/200165336-46bfa99c-6f2d-4b7b-81b8-44a849c68544.svg">
+  <img src="/icons/springboot.svg">
 ---
 
 ## 커밋 규칙
