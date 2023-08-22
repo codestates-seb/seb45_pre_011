@@ -22,7 +22,19 @@
 
 ## 팀원 소개
 
-김동준 변상현 정윤민 홍윤표 윤건용 김준오
+<table>
+  <tbody>
+    <tr>
+      <td align="center">김동준<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀장 : </b></sub></a><br /></td>
+      <td align="center">정윤민<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
+      <td align="center">변상현<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
+     <tr/>
+      <td align="center">홍윤표<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 부팀장 : </b></sub></a><br /></td>
+      <td align="center">윤건용<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
+      <td align="center">김준오<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
