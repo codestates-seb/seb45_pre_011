@@ -37,7 +37,6 @@ public class CommentController {
             @PathVariable("post-id") Long postId,
             @RequestBody CommentDto.PostDto postDto){
         Member author = memberService.getUserByAuthentication();
-        System.out.println("아이디: "+author.getUserId());
         // 존재하는 post인지 확인
         Post post = postService.getPostById(postId);
         if(post == null)
@@ -62,16 +61,17 @@ public class CommentController {
         TODO 검증되면 로직 진행, 검증 실패 -> 권한없음 에러
         TODO 댓글 수정 시 userId를 DB에 저장 후, 응답 바디에 반환 */
         Member author = memberService.getUserByAuthentication();
-        Comment updatedComment = commentService.updateComment(commentId,mapper.commentPatchDtoToComment(patchDto));
-        if (updatedComment.getMember().getUserId() != author.getUserId()){
+        Comment update = commentService.findVerifiedComment(commentId);
+        if (update.getMember().getUserId() != author.getUserId()){
             // 아디가 맞지 않아도 관리자인 경우 통과
             if (!author.getRoles().get(0).equals("ADMIN"))
                 return new ResponseEntity<>("You don't have permission to update this comment.", HttpStatus.UNAUTHORIZED);
         }
         // 댓글의 post_id와 주어진 postId를 비교하여 검증합니다.
-        if (updatedComment.getPost().getPostId() != postId ) {
+        if (update.getPost().getPostId() != postId ) {
             return new ResponseEntity<>("You don't have permission to update this comment.", HttpStatus.FORBIDDEN);
         }
+        Comment updatedComment = commentService.updateComment(commentId,mapper.commentPatchDtoToComment(patchDto));
         // 변경된 댓글을 저장하고 업데이트된 댓글을 반환합니다.
         return new ResponseEntity<>(mapper.commentToResponseDTO(updatedComment), HttpStatus.OK);
     }

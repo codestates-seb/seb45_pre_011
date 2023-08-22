@@ -33,6 +33,10 @@
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black"/>
 
 ### BE 기술 스택
+<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=black"/>
+<img src="https://img.shields.io/badge/Springboot-6DB33F?style=for-the-badge&logo=Spring-boot&logoColor=white"/>
+<img src="https://img.shields.io/badge/SpringSecurity-6DB33F?style=for-the-badge&logo=Spring-security&logoColor=black"/>
+<img src="https://img.shields.io/badge/java-FA6831?style=for-the-badge&logo=java&logoColor=black"/>
 
 ---
 

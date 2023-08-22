@@ -1,5 +1,6 @@
 package com.example.seb45pre011.answer;
 
+import com.example.seb45pre011.member.Member;
 import com.example.seb45pre011.post.Post;
 import com.example.seb45pre011.post.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,13 @@ public class AnswerServiceImpl implements AnswerService {
   private PostRepository postRepository;
 
   @Override
-  public Answer addAnswer(Long postId, AnswerDto answerDto) {
+  public Answer addAnswer(Member author,Long postId, AnswerDto answerDto) {
     Post parentPost = postRepository.findById(postId).orElse(null);
     if (parentPost != null) {
       Answer answer = new Answer();
       answer.setContent(answerDto.getContent());
       answer.setParentPost(parentPost);
+      answer.setMember(author);
       return answerRepository.save(answer);
     }
     return null;

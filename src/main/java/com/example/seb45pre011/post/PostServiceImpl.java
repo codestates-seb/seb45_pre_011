@@ -12,10 +12,11 @@ public class PostServiceImpl implements PostService {
   private PostRepository postRepository;
 
   @Override
-  public Post createPost(PostDto postDto) {
+  public Post createPost(Member member,PostDto postDto) {
     Post post = new Post();
     post.setTitle(postDto.getTitle());
     post.setContent(postDto.getContent());
+    post.setMember(member);
 
     return postRepository.save(post);
   }
