@@ -14,6 +14,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @EnableWebSecurity
@@ -43,6 +48,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/mypage/**").hasAnyRole("USER","ADMIN")   // 인증된 사용자만 접근 가능한 경로
                 .anyRequest().authenticated()
                 .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessHandler(logoutSuccessHandler())
+                .addLogoutHandler(logoutHandler())
+                .permitAll()
+                .and()
                 .cors().disable()
                 .csrf().disable();
         http.headers().frameOptions().sameOrigin()
@@ -57,5 +68,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure (WebSecurity web) throws Exception {
         web.ignoring()
                 .antMatchers("/**");
+    }
+    @Bean
+    public LogoutSuccessHandler logoutSuccessHandler() {
+        return new SimpleUrlLogoutSuccessHandler();
+    }
+
+    @Bean
+    public LogoutHandler logoutHandler() {
+        return new SecurityContextLogoutHandler();
     }
 }

@@ -21,20 +21,22 @@
 ---
 
 ## 팀원 소개
+
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
+      <td align="center">김동준<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀장 : </b></sub></a><br /></td>
+      <td align="center">정윤민<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
+      <td align="center">변상현<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
      <tr/>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 부팀장 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
+      <td align="center">홍윤표<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 부팀장 : </b></sub></a><br /></td>
+      <td align="center">윤건용<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
+      <td align="center">김준오<a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
     </tr>
   </tbody>
 </table>
+
+---
 
 ## 기술 스택
 
@@ -45,7 +47,6 @@
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black"/>
 
 ### BE 기술 스택
-
 <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=green">
 <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
 <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
@@ -53,8 +54,6 @@
 <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
 <img src="https://img.shields.io/badge/Amazon S3-569A31?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
 <img src="https://img.shields.io/badge/Amazon RDS-527FFF?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
-
-
 
 ---
 
@@ -75,3 +74,15 @@ chore: 빌드 관련 작업 또는 도구 설정 변경
 hotfix : 긴급 코드 수정 필요(전원공지 필수)
 
 ### BE 커밋 규칙
+작성 예시 : [분류 메시지] "작업내용"  "번호)" "커밋 내용"
+ex) [commit] 로그인 기능 3) 비밀번호 글자수 확인
+
+=> 분류 메시지
+commit: 새로운 기능 추가
+fix: 버그 수정
+docs: 문서 변경
+style: 코드 스타일 변경
+refactor: 코드 리팩토링
+test: 테스트 코드 추가나 수정
+chore: 빌드 관련 작업 또는 도구 설정 변경
+hotfix : 긴급 코드 수정 필요(전원공지 필수)
