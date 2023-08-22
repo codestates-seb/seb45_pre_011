@@ -21,20 +21,8 @@
 ---
 
 ## 팀원 소개
-<table>
-  <tbody>
-    <tr>
-      <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
-     <tr/>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 부팀장 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
-    </tr>
-  </tbody>
-</table>
+
+---
 
 ## 기술 스택
 
@@ -45,21 +33,8 @@
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black"/>
 
 ### BE 기술 스택
-<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=black"/>
-<img src="https://img.shields.io/badge/Springboot-6DB33F?style=for-the-badge&logo=Spring-boot&logoColor=white"/>
-<img src="https://img.shields.io/badge/SpringSecurity-6DB33F?style=for-the-badge&logo=Spring-security&logoColor=black"/>
-<img src="https://img.shields.io/badge/java-FA6831?style=for-the-badge&logo=java&logoColor=black"/>
-
-<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=green">
-<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
-<img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
-<img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
-<img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
-<img src="https://img.shields.io/badge/Amazon S3-569A31?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
-<img src="https://img.shields.io/badge/Amazon RDS-527FFF?style=for-the-badge&logo=Spring Boot&logoColor=yellow">
-
-
-
+<p align="center">
+  <img src="/icons/springboot.svg">
 ---
 
 ## 커밋 규칙
